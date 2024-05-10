@@ -1,9 +1,8 @@
+streamlit
 pandas
 numpy
 seaborn
-matplotlib.pyplot
-plotly.express
-plotly.graph_objs
+matplotlib
+plotly
 wordcloud
-pickle
-sklearn.manifold
+scikit-learn
