@@ -1,5 +1,6 @@
 #######################
 # Import libraries
+import os
 import streamlit as st
 import time
 import pandas as pd
@@ -159,9 +160,11 @@ with st.sidebar:
 
     selectedDataset = st.selectbox('Filling approach for missing value in dataset',datasetOption)
     index_selectItem = datasetOption.index(selectedDataset)
+    m_file_path = os.path.join("Dataset", "Dataset_for_EDA", f"macroNutrient_{datasetName[index_selectItem]}.csv")
+    macroNutrient_dataset = pd.read_csv(m_file_path, encoding='unicode_escape')
+    r_file_path = os.path.join("Dataset", "Dataset_for_reduced_data", f"{datasetName[index_selectItem]}_reduced.csv")
+    reducedDataset = pd.read_csv(r_file_path, encoding='unicode_escape')
   
-    macroNutrient_dataset =pd.read_csv(r"Dataset\Dataset_for_EDA\macroNutrient_{datasetName[index_selectItem]}.csv", encoding= 'unicode_escape')
-    reducedDataset = pd.read_csv(r"Dataset\Dataset_for_reduced_data\{datasetName[index_selectItem]}_reduced.csv")
     reducedDataset = reducedDataset.iloc[:,[1,2]].to_numpy()
 
     selectedFeatures = st.selectbox('Feature to perform',
@@ -217,29 +220,18 @@ elif selectedFeatures == 'Clustering':
                                             Clustering_method,
                                             index=None,
                                             placeholder='Choose a model')
-    if clusteringMethod == Clustering_method[0]:
-        with open(r'Model_fitted\{modelName[0]}_{datasetName[index_selectItem]}_pkl','rb') as file:
-            loaded_model = pickle.load(file)
-
-        plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[0])
-    
-    elif clusteringMethod == Clustering_method[1]:
-        with open(r'Model_fitted\{modelName[1]}_{datasetName[index_selectItem]}_pkl','rb') as file:
-            loaded_model = pickle.load(file)
-
-        plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[1])
-
-    elif clusteringMethod == Clustering_method[2]:
-        with open(r'Model_fitted\{modelName[2]}_{datasetName[index_selectItem]}_pkl','rb') as file:
-            loaded_model = pickle.load(file)
-
-        plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[2])
-
-    elif clusteringMethod == Clustering_method[3]:
-        with open(r'Model_fitted\{modelName[3]}_{datasetName[index_selectItem]}_pkl','rb') as file:
-            loaded_model = pickle.load(file)
-
-        plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[3])
+    if clusteringMethod in Clustering_method:
+      model_index = Clustering_method.index(clusteringMethod)
+      
+      model_file_path = os.path.join("Model_fitted", f"{modelName[model_index]}_{datasetName[index_selectItem]}_pkl")
+      
+      with open(model_file_path, 'rb') as file:
+          loaded_model = pickle.load(file)
+          
+      plot_clusters(reducedDataset, loaded_model.fit_predict(reducedDataset), clusteringMethod)
+    else:
+        # Handle the case when clusteringMethod doesn't match any entry in Clustering_method
+        print("Invalid clustering method selected")  
     
     # else:
     
