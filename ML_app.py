@@ -234,21 +234,21 @@ elif selectedFeatures == 'Clustering':
       with open(model_path,'rb') as file:
             loaded_model = pickle.load(file)
 
-        plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[1])
+      plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[1])
 
     elif clusteringMethod == Clustering_method[2]:
       model_path = os.path.join("Model_fitted", f"{modelName[2]}_{datasetName[index_selectItem]}_pkl")  
       with open(model_path,'rb') as file:
             loaded_model = pickle.load(file)
 
-        plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[2])
+      plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[2])
 
     elif clusteringMethod == Clustering_method[3]:
       model_path = os.path.join("Model_fitted", f"{modelName[3]}_{datasetName[index_selectItem]}_pkl")  
       with open(model_path,'rb') as file:
             loaded_model = pickle.load(file)
 
-        plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[3])
+      plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[3])
     
     # else:
     
