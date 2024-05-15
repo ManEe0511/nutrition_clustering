@@ -164,7 +164,8 @@ with st.sidebar:
     file_path = os.path.join("Dataset", "Dataset_for_EDA", f"macroNutrient_{datasetName[index_selectItem]}.csv")
     macroNutrient_dataset = pd.read_csv(file_path, encoding='unicode_escape')
 
-    reducedDataset = pd.read_csv(f"Dataset\Dataset_for_reduced_data\{datasetName[index_selectItem]}_reduced.csv")
+    reduced_file_path = os.path.join("Dataset", "Dataset_for_reduced_data", f"{datasetName[index_selectItem]}_reduced.csv")
+    reducedDataset = pd.read_csv(reduced_file_path, encoding='unicde_escape')
     reducedDataset = reducedDataset.iloc[:,[1,2]].to_numpy()
 
     selectedFeatures = st.selectbox('Feature to perform',
