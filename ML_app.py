@@ -1,6 +1,5 @@
 #######################
 # Import libraries
-import os
 import streamlit as st
 import time
 import pandas as pd
@@ -160,11 +159,8 @@ with st.sidebar:
 
     selectedDataset = st.selectbox('Filling approach for missing value in dataset',datasetOption)
     index_selectItem = datasetOption.index(selectedDataset)
-
-    file_path = os.path.join("Dataset", "Dataset_for_EDA", f"macroNutrient_{datasetName[index_selectItem]}.csv")
-    macroNutrient_dataset = pd.read_csv(file_path, encoding='unicode_escape')
-
-    
+  
+    macroNutrient_dataset =pd.read_csv(r"Dataset\Dataset_for_EDA\macroNutrient_{datasetName[index_selectItem]}.csv", encoding= 'unicode_escape')
     reducedDataset = pd.read_csv(r"Dataset\Dataset_for_reduced_data\{datasetName[index_selectItem]}_reduced.csv")
     reducedDataset = reducedDataset.iloc[:,[1,2]].to_numpy()
 
