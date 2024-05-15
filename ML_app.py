@@ -221,26 +221,31 @@ elif selectedFeatures == 'Clustering':
                                             Clustering_method,
                                             index=None,
                                             placeholder='Choose a model')
+  
     if clusteringMethod == Clustering_method[0]:
-        with open(f'Model_fitted\{modelName[0]}_{datasetName[index_selectItem]}_pkl','rb') as file:
+        model_path = os.path.join("Model_fitted", f"{modelName[0]}_{datasetName[index_selectItem]}_pkl")
+        with open(model_path,'rb') as file:
             loaded_model = pickle.load(file)
 
         plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[0])
     
     elif clusteringMethod == Clustering_method[1]:
-        with open(f'Model_fitted\{modelName[1]}_{datasetName[index_selectItem]}_pkl','rb') as file:
+      model_path = os.path.join("Model_fitted", f"{modelName[1]}_{datasetName[index_selectItem]}_pkl")  
+      with open(model_path,'rb') as file:
             loaded_model = pickle.load(file)
 
         plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[1])
 
     elif clusteringMethod == Clustering_method[2]:
-        with open(f'Model_fitted\{modelName[2]}_{datasetName[index_selectItem]}_pkl','rb') as file:
+      model_path = os.path.join("Model_fitted", f"{modelName[2]}_{datasetName[index_selectItem]}_pkl")  
+      with open(model_path,'rb') as file:
             loaded_model = pickle.load(file)
 
         plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[2])
 
     elif clusteringMethod == Clustering_method[3]:
-        with open(f'Model_fitted\{modelName[3]}_{datasetName[index_selectItem]}_pkl','rb') as file:
+      model_path = os.path.join("Model_fitted", f"{modelName[3]}_{datasetName[index_selectItem]}_pkl")  
+      with open(model_path,'rb') as file:
             loaded_model = pickle.load(file)
 
         plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[3])
