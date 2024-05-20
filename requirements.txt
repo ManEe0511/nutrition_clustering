@@ -6,3 +6,4 @@ matplotlib
 plotly
 wordcloud
 scikit-learn
+scikit-learn-extra
