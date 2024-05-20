@@ -1,4 +1,5 @@
 streamlit
+scikit-learn==1.2.2
 pandas
 numpy
 seaborn
@@ -6,4 +7,3 @@ matplotlib
 plotly
 wordcloud
 scikit-learn-extra
-scikit-learn==1.2.2
