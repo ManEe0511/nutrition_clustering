@@ -5,5 +5,5 @@ seaborn
 matplotlib
 plotly
 wordcloud
-scikit-learn==1.2.2
 scikit-learn-extra
+scikit-learn==1.2.2
