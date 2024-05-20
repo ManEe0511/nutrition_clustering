@@ -248,7 +248,7 @@ elif selectedFeatures == 'Clustering':
       with open(model_path,'rb') as file:
             loaded_model = pickle.load(file)
 
-      plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[3])
+      plot_clusters(reducedDataset,loaded_model.fit_predict(reducedDataset),Clustering_method[3],sample_weight=None)
     
     # else:
     
