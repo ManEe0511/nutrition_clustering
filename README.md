@@ -32,3 +32,8 @@ The objectives of performing cluster analysis on different food product combinat
 [Dataset 7: Filling missing values with a linear interpolation method](https://github.com/chenm00n/g2_nutrition_clustering/blob/e7228963c5aa37b06c3ccb59f6027d9a8d76930f/Document-Demo%20Outputs/G2_MN_LInterpolation_Clustering.pdf)
 
 [Dataset 8: Remove the rows with missing values](https://github.com/chenm00n/g2_nutrition_clustering/blob/e7228963c5aa37b06c3ccb59f6027d9a8d76930f/Document-Demo%20Outputs/G2_MN_removeRow_Clustering.pdf)
+
+## Streamlit
+
+Streamlit for this project is accessible via the file named 'ML_app.py'
+
